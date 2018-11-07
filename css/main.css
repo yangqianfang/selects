@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,html{ font-size:12px; margin:0px; padding:0px; color:#373737 }
+.h1{ text-align:center; padding:20px}
+h1{ margin:0;padding:0; background:url(../images/title2.jpg) no-repeat; width:600px; height:60px; margin:0 auto;}
+.content{ border:1px solid #E1E1E1; padding:10PX; margin-top:10px; background:#F2FAFB; color:#333; line-height:20px; font-family:'Courier New'; word-break: break-all;
+    word-wrap: break-word; height:240px; overflow-y:auto}
+.warp{ width:920px; margin:0 auto;}
+.parm{ background:#EDE9FC}
+.parm_tb{ border-right:1px solid #ccc;border-bottom:1px solid #ccc}
+.parm_tb td,.parm_tb th{ text-align:center; height:32px; line-height:32px; border-left:1px solid #CCC; border-top:1px solid #CCC}
+.fotter{ height:30px; line-height:30px; text-align:center; background:#CCC; margin-top:10px;}
+a{ text-decoration:none; color:#000; font-size:12px}
+
+
+a.but_right, a.but_right span, a.but_right:hover, a.but_right:hover span, a.but_right_click, a.but_right_click span { background: url("../images/n_button.gif") no-repeat scroll 0 0 transparent; font-family: '微软雅黑'; }
+a.but_right, a.but_right:hover, a.but_right_click { display: inline-block; padding: 0 0 0 10px; }
+a.but_right span, a.but_right:hover span, a.but_right_click span { cursor: pointer; display: block; height: 30px; left: 1px; line-height: 30px; padding: 0 25px 0 0; position: relative; overflow:hidden }
+a.but_right { background-position: 0 -135px; }
+a.but_right span { background-position: 100% -135px; }
+a.but_right:hover { background-position: 0 -415px; }
+a.but_right:hover span { background-position: 100% -415px; }
+a.but_right_click { background-position: 0 -461px; }
+a.but_right_click span { background-position: 100% -461px; }
+
+
+
+.select_div { position:absolute; top:25px; display:none; border-top:0; }
+.select_value { border-top:0; background:#fff; overflow-y:auto; overflow-x:hidden; border:solid 1px #e1e1e1; border-top:0; border-bottom:0; margin:0; padding:0}
+.select_value li.list { height:28px; line-height:28px; color:#fff; border-bottom:dotted 1px #ccc; padding:0; margin:0 }
+.select_value li.list a { padding-left:10px;  padding-right: 10px;display:block; height:28px; line-height:28px; text-decoration:none; overflow:hidden }
+.select_value li.list a:hover { display:block; height:28px; line-height:28px; background:#71b5e6; color:#fff }
+.selectcreateli { border:solid 1px #e1e1e1; }
+.selectcreateli a { padding-left:10px; display:block; height:22px; line-height:22px; color:#286cb6; font-weight:bord; text-decoration:none; background:#eaeaea }
+.selectcreateli a:hover {display:block; height:22px; line-height:22px; color:#286cb6; background:#eaeaea }
+.select_top_left { padding-left:4px; height:2px; background:url(../images/select_top_left.gif) no-repeat; }
+.select_top_right { padding-right:4px; height:2px; background:url(../images/select_top_right.gif) no-repeat 100% 0; }
+.select_top_center { height:2px; background-color:#fff; }
+.select_bottom_left { padding-left:4px; height:5px; background:url(../images/select_bottom_left.gif) no-repeat; }
+.select_bottom_right { padding-right:4px; height:5px; background:url(../images/select_bottom_right.gif) no-repeat 100% 0; }
+.select_bottom_center { height:5px; background:url(../images/select_bottom_center.gif) repeat-x; }
+.select_div .sel_search{height:24px;line-height:24px;border:1px solid #E1E1E1 ;border-top:0;color:#ccc;padding-left:10px;}
+
+.select_div .disable{padding-left:5px;height:28px;line-height:28px;color:black;background:#E1E1E1;display: block; font-size:12px; color:#999}
+.select_div .current{ background:#71B5E6; color:#FFF}
+.select_div .current a{color:#FFF}
+

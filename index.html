@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="js/jquery-1.7.min.js"></script>
+<script src="js/jquery.ui.select.js"></script>
+<link  href="css/main.css" type="text/css"  rel="stylesheet"/>
+<style>
+ 
+</style>
+</head>
+
+<body>
+<div class="h1"><H1></H1></div>
+<div class="warp">
+
+    <h3>1、默认下拉</h3>
+   <div style="float:left"> <a style="width:200px;" id="selectBT1" class="but_right" href="javascript:void(0)"><span></span></a></div><div style="float:left;padding: 2px 5px;"><input type="button" value="提交" id="button1" /></div>
+   <div style="clear:both"></div>
+    <pre class="content" >
+        $("#selectBT1").selects({
+                data : [ 
+                        {name : '下拉选项1',id : 'day1'},
+                        {name : '下拉选项2',id : 'day2'},
+                        {name : '下拉选项3',id : 'day3'},
+                        {name : '下拉选项4',id : 'day4'}
+                 ],
+                defaultValue : "day4",
+                valueId : "signId",
+                zindex : 20,
+                callback : function(txt,val){}
+        });
+        $("#button1").bind("click",function(){
+            var name=$("#selectBT1").attr("txt");
+            var val=$("#selectBT1").attr("val");
+            alert(name+"+"+val);
+        });</pre>
+    <h3>2、禁用部分下拉选项</h3>
+   <div style="float:left"> <a style="width:200px;" id="selectBT2" class="but_right" href="javascript:void(0)"><span></span></a></div><div id="info2"  style="height:30px; padding-left:20px; line-height:30px; float:left; color:red"> </div>
+   <div style="clear:both"></div>
+    <pre class="content" >
+        $("#selectBT2").selects({
+            data:[{'name':'下拉选项1','id':'day1'},
+                  {'name':'下拉选项2','id':'day2'},
+                  {'name':'下拉选项3','id':'day3'},
+                  {'name':'下拉选项4','id':'day4'},
+                  {'name':'下拉选项5禁用','id':'day5','disable':true},
+                  {'name':'下拉选项6禁用','id':'hour6','disable':true}],
+            top:30,
+            left:0,
+            valueField : 'id',
+            textField : 'name',
+            defaultName:"请选择下拉",
+            defaultValue:"",
+            defaultLine:6,
+            className:"select_value",				
+            valueId:"signId",
+            zindex:19,
+            isSearch:false,
+            callback:function(txt,val){
+            	$("#info2").html("您选择了："+txt);
+            }
+        });</pre>
+    <h3>3、搜索下拉数据</h3>
+    <a style="width:200px;" id="selectBT3" class="but_right" href="javascript:void(0)"><span></span></a>
+    <h3>4、多数据下可出滚动条</h3>
+    <a style="width:200px;" id="selectBT4" class="but_right" href="javascript:void(0)"><span></span></a>
+    <!--截取字符串-->
+    <h3>5、显示数据可截取字符串</h3>
+    <a style="width:200px;" id="selectBT5" class="but_right" href="javascript:void(0)"><span></span></a>
+    <h3>6、DIY底部连接数据</h3>
+    <!--创建底部连接-->
+    
+    <a style="width:200px;" id="selectBT6" class="but_right" href="javascript:void(0)"><span></span></a>
+    <h3>7、支持input框下拉</h3>
+    <input type="text" name="activityname" id="selectBT7" maxlength="40" style="border:1px solid #ccc; height:20px;" class="input_text_two" value="">
+    <h3>8、参数说明</h3>
+    <div class="parm">
+    	<table class="parm_tb" width="100%" cellpadding="0" cellspacing="0">
+        <tr><th width="100">参数名</th><th width="400">描述</th><th width="400">用法</th></tr>
+           <tr> 
+                   <td>data</td>
+                   <td>下拉的数据参数, 必填, 数据的名称name 和id为默认名称，可修改，修改后参数
+                    valueField,textField做相应修改即可。disable:数据中控制下拉是否禁用某下拉列，值为：true/false
+                   </td>
+                   <td>数据格式为数组:[{'name':'下拉选项1','id':'day1}] </td>
+           </tr>
+            <tr> 
+                   <td>valueField</td>
+                   <td>数据中id的字段名称
+                   </td>
+                   <td>valueField: 'id',//数据字段id </td>
+           </tr>
+           <tr> 
+                   <td>textField</td>
+                   <td>数据中name的字段名称
+                   </td>
+                   <td>textField: 'name',//数据字段名称 </td>
+           </tr>
+           <tr> 
+                   <td>className</td>
+                   <td>样式名称，默认class为：select_value</td>
+                   <td> className: "select_value",//样式</td>
+           </tr>
+           <tr> 
+                   <td>valueId</td>
+                   <td>隐藏input的id名，用于记录选择当前下拉的值。可得到其值用于提交数据。</td>
+                   <td>设置 valueId: "idval", 得到选择的下拉的值为 $("#idval").val()</td>
+           </tr>
+            <tr> 
+                   <td>defaultName</td>
+                   <td>下拉上面默认显示的名称 如：请选择 等等。defaultValue设置时defaultName无效。</td>
+                   <td>defaultName："请选择"</td>
+           </tr>
+           <tr> 
+                   <td>defaultValue</td>
+                   <td>隐藏input的默认值，设置默认值会自动选择该条数据，不设置默认显示 defaultName 的名称见例1</td>
+                   <td>defaultValue：2</td>
+           </tr>
+           <tr> 
+                   <td>defaultLine</td>
+                   <td>默认显示数据条数，超过这个条数出滚动条，见例4</td>
+                   <td> defaultLine: 5,//默认下拉显示条数</td>
+           </tr>
+           <tr> 
+                   <td> zindex</td>
+                   <td>设置下拉的z-index值</td>
+                   <td>  zindex: '1',</td>
+           </tr>
+           <tr> 
+                   <td> firstnum</td>
+                   <td>添加下拉中的第一条数名称 默认值为空 </td>
+                   <td> firstnum:"第一条数据"</td>
+           </tr>
+           <tr> 
+                   <td> isSearch</td>
+                   <td>是否启用搜索功能，值为：true/fals,默认false </td>
+                   <td> isSearch:true</td>
+           </tr>
+           <tr> 
+                   <td> callback</td>
+                   <td>选中下拉时的回调函数 返回 选中的 name和id </td>
+                   <td>  callback: function(name,val) {alert(name);alert(val);}</td>
+           </tr>
+        </table>
+    </div>
+</div>
+<div class="fotter">版权所有 by 坏小子 QQ:516010874</div>
+<script>
+$("#selectBT1").selects({
+		data:[{name:'下拉选项1',id:'day1'},
+			  {name:'下拉选项2',id:'day2'},
+			  {name:'下拉选项3',id:'day3'},
+			  {name:'下拉选项4',id:'day4'}],
+		defaultValue:"day2",
+		valueId:"signId",
+		zindex:20,
+		callback:function(txt,val){}
+});
+//alert("您选择了："+txt+"，值为："+val);
+$("#button1").bind("click",function(){
+		var name=$("#selectBT1").attr("txt");
+		var val=$("#selectBT1").attr("val");
+		alert(name+"+"+val);
+	});
+$("#selectBT2").selects({
+		data:[{'name':'下拉选项1','id':'day1'},
+			  {'name':'下拉选项2','id':'day2'},
+			  {'name':'下拉选项3','id':'day3'},
+			  {'name':'下拉选项4','id':'day4'},
+			  {'name':'下拉选项5禁用','id':'day5','disable':true},
+			  {'name':'下拉选项6禁用','id':'hour6','disable':true}],
+		top:30,
+		left:0,
+		valueField : 'id',
+		textField : 'name',
+		defaultName:"请选择下拉",
+		defaultValue:"",
+	    defaultLine:6,
+		className:"select_value",				
+		valueId:"signId",
+		zindex:19,
+		isSearch:false,
+		callback:function(txt,val){$("#info2").html("您选择了："+txt)}
+		
+});
+
+$("#selectBT3").selects({
+		data:[{'name':'下拉选项1','id':'day1'},
+			  {'name':'下拉选项2','id':'day2'},
+			  {'name':'下拉选项3','id':'day3'},
+			  {'name':'下拉选项4','id':'day4'},
+			  {'name':'下拉选项5','id':'day5'},
+			  {'name':'下拉选项5','id':'hour5'}],
+		top:30,
+		left:0,
+		valueField : 'id',
+		textField : 'name',
+		defaultName:"下拉选项1",
+		defaultValue:"day1",
+	    defaultLine:6,
+		className:"select_value",				
+		valueId:"signId",
+		zindex:18,
+		isSearch:true,
+		callback:function(txt,val){}		
+});
+
+$("#selectBT4").selects({
+		data:[{'name':'下拉选项1','id':'day1'},
+			  {'name':'下拉选项2','id':'day2'},
+			  {'name':'下拉选项3','id':'day3'},
+			  {'name':'下拉选项4','id':'day4'},
+			  {'name':'下拉选项5','id':'day5'},
+			  {'name':'下拉选项6','id':'hour6'},
+			  {'name':'下拉选项7','id':'day7'},
+			  {'name':'下拉选项8','id':'hour8'}],
+		top:30,
+		left:0,
+		valueField : 'id',
+		textField : 'name',
+		defaultName:"下拉选项1",
+		defaultValue:"day1",
+	    defaultLine:6,
+		className:"select_value",				
+		valueId:"signId",
+		zindex:17,
+		isSearch:false,
+		callback:function(txt,val){}
+});
+$("#selectBT5").selects({
+		data:[{'name':'下拉选项下拉选项1','id':'day1'},
+			  {'name':'下拉选项下拉选项下拉选项2下拉选项','id':'day2'},
+			  {'name':'下拉选项3','id':'day3'},
+			  {'name':'下拉选项4','id':'day4'},
+			  {'name':'下拉选项5','id':'day5'},
+			  {'name':'下拉选项6','id':'hour6'}],
+		defaultName:"下拉选项下拉选项1",
+		defaultValue:"day1",
+	    defaultLine:6,
+		valueId:"signId5",
+		zindex:16,
+		clickSubstr: "28",//显示的截取个数
+        viewSubstr: "28",//下拉里面的显示个数
+		callback:function(txt,val){
+			
+			}
+});
+$("#selectBT6").selects({
+		data:[{'name':'下拉选项1','id':'day1'},
+			  {'name':'下拉选项2','id':'day2'},
+			  {'name':'下拉选项3','id':'day3'},
+			  {'name':'下拉选项4','id':'day4'},
+			  {'name':'下拉选项5','id':'day5'},
+			  {'name':'下拉选项6','id':'hour6'},
+			  {'name':'下拉选项7','id':'day7'}],
+		defaultName:"下拉选项1",
+		defaultValue:"day1",
+	    defaultLine:6,
+		zindex:15,
+		createDiy:{diy:true,text:"百度",links:"http://www.baidu.com",target:"_blank",id:"s"},
+		valueId:"signId5",
+		callback:function(txt,val){
+			
+			}
+});
+
+$("#selectBT7").selects({
+		data:[{'name':'下拉选项1','id':'day1'},
+			  {'name':'下拉选项2','id':'day2'},
+			  {'name':'下拉选项3','id':'day3'},
+			  {'name':'下拉选项4','id':'day4'},
+			  {'name':'下拉选项5','id':'day5'},
+			  {'name':'下拉选项6','id':'hour6'},
+			  {'name':'下拉选项7','id':'day7'},
+			  {'name':'下拉选项8','id':'hour8'}],
+		defaultName:"下拉选项1",
+		defaultValue:"day1",
+	    defaultLine:6,
+		zindex:14,
+		createDiy:{diy:true,text:"百度",links:"http://www.baidu.com",target:"_blank",id:"s"},
+		valueId:"signId5",
+		callback:function(txt,val){
+			
+			}
+});
+</script>
+<script>
+$('a.but_left').mousedown(function() {
+		$(this).addClass('but_left_click').removeClass('but_left');
+	}).mouseup(function() {
+		$(this).addClass('but_left').removeClass('but_left_click');
+	});
+	$('a.but_right').mousedown(function() {
+		$(this).addClass('but_right_click').removeClass('but_right');
+	}).mouseup(function() {
+		$(this).addClass('but_right').removeClass('but_right_click');
+	});
+</script>
+<script>
+  
+           var arrunique = function(array) {  
+                var ret = [], done = {};  
+                try {  
+                    for (var i = 0, length = array.length; i < length; i++) {  
+                        var tmp = array[i]; // jQuery native code : var id = jQuery.data(array[i]);  
+                        if (!done[tmp]) {  
+                            done[tmp] = true;  
+                            ret.push(tmp);  
+                        }  
+                    }  
+                } catch (e) {  
+                    ret = array;  
+                }  
+                return ret;  
+            }  
+        var s=[1,3,3,3,3,3,4,4,4,4,4]
+    //alert(arrunique(s));
+</script>
+</body>
+</html>
